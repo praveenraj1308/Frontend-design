@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result Calculator</title>
+    <style>
+        body {
+            top:3cm;
+            font-family: Arial, sans-serif;
+            background-image: url(https://images.wallpapersden.com/image/download/blue-glowing-4k-line_bGVpbWWUmZqaraWkpJRmbmdlrWZlbWU.jpg);
+        }
+        .container {
+            display:block;
+            
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 50px;
+            border: 3px solid #e6dada;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="">Result Calculator</h2>
+        <form id="resultForm">
+            <label for="subject1">Subject 1:</label>
+            <input type="number" id="subject1" name="subject1" required>
+            
+            <label for="subject2">Subject 2:</label>
+            <input type="number" id="subject2" name="subject2" required>
+            
+            <label for="subject3">Subject 3:</label>
+            <input type="number" id="subject3" name="subject3" required>
+            
+            <label for="subject4">Subject 4:</label>
+            <input type="number" id="subject4" name="subject4" required>
+
+            <label for="Subject5">Subject 5:</label>
+            <input type="number" id="Subject5" name="Subject5" required>
+            
+            <button type="button" id="calculateButton">Calculate</button>
+        </form>
+        
+        <div id="resultDisplay" style="display: none;">
+            <h3>Results</h3>
+            <p>Total Score: <span id="totalScore"></span></p>
+            <p>Average Score: <span id="averageScore"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("calculateButton").addEventListener("click", function() {
+            const subject1 = parseFloat(document.getElementById("subject1").value);
+            const subject2 = parseFloat(document.getElementById("subject2").value);
+            const subject3 = parseFloat(document.getElementById("subject3").value);
+            const subject4 = parseFloat(document.getElementById("subject4").value);
+            const subject5 = parseFloat(document.getElementById("subject5").value);
+
+            const totalScore = subject1 + subject2 + subject3 + subject4;
+            const averageScore = totalScore / 4;
+
+            document.getElementById("totalScore").textContent = totalScore.toFixed(2);
+            document.getElementById("averageScore").textContent = averageScore.toFixed(2);
+
+            document.getElementById("resultDisplay").style.display = "block";
+        });
+    </script>
+</body>
+</html>
